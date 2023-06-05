@@ -1,0 +1,7 @@
+README.md
+setup.py
+liquisource.egg-info/PKG-INFO
+liquisource.egg-info/SOURCES.txt
+liquisource.egg-info/dependency_links.txt
+liquisource.egg-info/requires.txt
+liquisource.egg-info/top_level.txt

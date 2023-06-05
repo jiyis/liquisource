@@ -1,0 +1,4 @@
+clickhouse_connect==0.5.25
+jproperties==2.1.1
+setuptools==65.5.1
+pymongo~=4.3.3
