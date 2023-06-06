@@ -12,8 +12,9 @@ def get_mysql_client():
     # 由于默认liquibase是jdbc的，这里解析对应的ip port
     params = parse_jdbc_dsn(get_property("url"))
     client = mysql.connector.connect(**params)
+    client.autocommit = True
 
-    return client
+    return client.cursor()
 
 
 def parse_jdbc_dsn(dsn):
