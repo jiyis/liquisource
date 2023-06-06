@@ -1,5 +1,9 @@
 README.md
 setup.py
+client/__init__.py
+client/ck_client.py
+client/config.py
+client/mongo_client.py
 liquisource.egg-info/PKG-INFO
 liquisource.egg-info/SOURCES.txt
 liquisource.egg-info/dependency_links.txt
