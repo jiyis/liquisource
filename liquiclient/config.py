@@ -34,6 +34,16 @@ def get_property(name):
     return config[name].data
 
 
+# 获取租户id
+def get_tenant():
+    return get_property("parameter.tenant")
+
+
+# 获取空间id
+def get_biz():
+    return get_property("parameter.biz")
+
+
 # 获取根据租户分库分表
 def get_tenant_shard(key):
     kfuin = get_property("parameter.tenant")
