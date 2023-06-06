@@ -1,4 +1,0 @@
-setuptools
-jproperties
-clickhouse_connect
-pymongo

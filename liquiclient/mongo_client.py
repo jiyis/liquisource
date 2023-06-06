@@ -3,7 +3,7 @@
 
 import pymongo
 
-from config import *
+from liquiclient.config import get_config, get_property
 
 
 # 获取mongodb实例

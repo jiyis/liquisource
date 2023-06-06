@@ -4,7 +4,7 @@
 
 import clickhouse_connect
 
-from config import *
+from liquiclient.config import get_config, get_property
 
 
 # 获取clickhouse实例

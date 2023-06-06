@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "liquisource"
+version = "1.1.1"
+authors = [
+  { name="jiyis", email="425995717@qq.com" },
+]
+description = "A liquibase datasource client for python"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jiyis/liquisource"
+"Bug Tracker" = "https://github.com/jiyis/liquisource/issues"
