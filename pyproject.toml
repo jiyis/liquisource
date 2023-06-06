@@ -16,6 +16,11 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = [
+    "clickhouse_connect==0.5.25",
+    "jproperties==2.1.1",
+    "pymongo==4.3.3",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/jiyis/liquisource"
