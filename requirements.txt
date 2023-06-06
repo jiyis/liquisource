@@ -2,3 +2,5 @@ clickhouse_connect==0.5.25
 jproperties==2.1.1
 setuptools==65.5.1
 pymongo~=4.3.3
+mysql-connector-python~=8.0.33
+redis~=4.5.5
