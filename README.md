@@ -46,3 +46,12 @@ if __name__ == "__main__":
     create_tag_collection()
 
 ```
+
+## 发布包
+```python
+python3 -m pip install --upgrade build
+python3 -m build
+python3 -m pip install --upgrade twine
+python3 -m twine upload  dist/*
+
+```
