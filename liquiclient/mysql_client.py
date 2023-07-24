@@ -17,13 +17,13 @@ def get_mysql_client():
 
 
 def parse_jdbc_dsn(dsn):
-    url_str = dsn.lstrip("jdbc:mysql://")
-    # 如果URL没有scheme，为其添加默认的http或https
-    if not url_str.startswith(('http://', 'https://')):
-        url_str = 'http://' + url_str
+    if not dsn.startswith("jdbc:mysql//"):
+        raise ValueError("Invalid MySQL DSN")
+    # 去除 "jdbc:" 前缀
+    dsn = "mysql://" + dsn[12:]
 
     # 当成url解析
-    url_obj = urlparse(url_str)
+    url_obj = urlparse(dsn)
     query_params = parse_qs(url_obj.query)
 
     # 获取账号密码
@@ -36,7 +36,7 @@ def parse_jdbc_dsn(dsn):
         "database": url_obj.path.lstrip("/"),
         "user": username,
         "password": password,
-        "charset": query_params['characterEncoding'][0],
+        "charset": query_params.get('characterEncoding', ["utf8"])[0],
     }
 
     return config
