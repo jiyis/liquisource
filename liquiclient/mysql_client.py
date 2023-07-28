@@ -17,10 +17,10 @@ def get_mysql_client():
 
 
 def parse_jdbc_dsn(dsn):
-    if not dsn.startswith("jdbc:mysql//"):
+    if not dsn.startswith("jdbc:"):
         raise ValueError("Invalid MySQL DSN")
     # 去除 "jdbc:" 前缀
-    dsn = "mysql://" + dsn[12:]
+    dsn = dsn[5:]
 
     # 当成url解析
     url_obj = urlparse(dsn)
