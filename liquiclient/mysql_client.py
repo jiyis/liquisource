@@ -16,6 +16,15 @@ def get_mysql_client():
     return client
 
 
+# 获取mysql集群实例
+def get_mysql_cluster_client(cluster):
+    # 由于默认liquibase是jdbc的，这里解析对应的ip port
+    params = parse_jdbc_dsn(get_property(cluster+".url"))
+    client = mysql.connector.connect(**params)
+
+    return client
+
+
 def parse_jdbc_dsn(dsn):
     if not dsn.startswith("jdbc:"):
         raise ValueError("Invalid MySQL DSN")

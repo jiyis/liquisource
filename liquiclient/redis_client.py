@@ -16,3 +16,16 @@ def get_redis_client():
     client = redis.Redis(host=host, port=port, username=username, password=password, decode_responses=True)
 
     return client
+
+
+# 获取mysql实例
+def get_redis_cluster_client(cluster):
+
+    host = get_property(cluster+".redis.host")
+    port = get_property(cluster+".redis.port")
+    username = get_property(cluster+".redis.username")
+    password = get_property(cluster+".redis.password")
+
+    client = redis.Redis(host=host, port=port, username=username, password=password, decode_responses=True)
+
+    return client
