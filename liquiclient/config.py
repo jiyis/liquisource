@@ -3,6 +3,7 @@
 import sys
 from jproperties import Properties
 import os
+import json
 
 config = Properties()
 
@@ -48,6 +49,24 @@ def get_biz():
 def get_tenant_shard(key):
     kfuin = get_property("parameter.tenant")
     return key + "_" + kfuin
+
+
+# 获取所有集群id
+def get_clusters_by_env(key):
+    # 从环境变量中获取值
+    json_str = os.environ.get(key)
+
+    if json_str is None:
+        print("Environment variable {} is empty".format(key))
+        exit(-1)
+    else:
+        try:
+            # 尝试解析JSON字符串
+            json_obj = json.loads(json_str)
+            return json_obj
+        except json.JSONDecodeError:
+            print("Environment variable {} is not a valid JSON string".format(key))
+            exit(-1)
 
 
 auto_config()
