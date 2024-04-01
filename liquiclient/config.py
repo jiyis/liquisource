@@ -52,6 +52,23 @@ def get_tenant_shard(key):
 
 
 # 获取所有集群id
+def get_clusters_by_config(key):
+    c = get_property(key)
+
+    if c is None:
+        print("clusters config {} is empty".format(key))
+        exit(-1)
+    else:
+        try:
+            # 尝试解析JSON字符串
+            json_obj = json.loads(c)
+            return json_obj
+        except json.JSONDecodeError:
+            print("clusters config {} is not a valid JSON string".format(key))
+            exit(-1)
+
+
+# 获取所有集群id
 def get_clusters_by_env(key):
     # 从环境变量中获取值
     json_str = os.environ.get(key)
