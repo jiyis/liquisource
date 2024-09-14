@@ -3,29 +3,35 @@
 
 import redis
 from liquiclient.config import get_property
+from redis.cluster import RedisCluster
 
 
-# 获取mysql实例
-def get_redis_client():
-
-    host = get_property("redis.host")
-    port = get_property("redis.port")
-    username = get_property("redis.username")
-    password = get_property("redis.password")
-
-    client = redis.Redis(host=host, port=port, username=username, password=password, decode_responses=True)
+# 获取redis实例
+def get_redis_client(cluster=False):
+    if not cluster:
+        host = get_property("redis.host")
+        port = get_property("redis.port")
+        username = get_property("redis.username")
+        password = get_property("redis.password")
+        client = redis.Redis(host=host, port=port, username=username, password=password, decode_responses=True)
+    else:
+        url = get_property("redis.cluster")
+        client = RedisCluster.from_url(url, decode_responses=True)
 
     return client
 
 
-# 获取mysql实例
-def get_redis_cluster_client(cluster):
+# 获取redis实例
+def get_redis_cluster_client(key, cluster=False):
+    if not cluster:
+        host = get_property(key + ".redis.host")
+        port = get_property(key + ".redis.port")
+        username = get_property(key + ".redis.username")
+        password = get_property(key + ".redis.password")
 
-    host = get_property(cluster+".redis.host")
-    port = get_property(cluster+".redis.port")
-    username = get_property(cluster+".redis.username")
-    password = get_property(cluster+".redis.password")
-
-    client = redis.Redis(host=host, port=port, username=username, password=password, decode_responses=True)
+        client = redis.Redis(host=host, port=port, username=username, password=password, decode_responses=True)
+    else:
+        url = get_property(key+"redis.cluster")
+        client = RedisCluster.from_url(url, decode_responses=True)
 
     return client
