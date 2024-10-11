@@ -42,7 +42,7 @@ def create_tag_collection():
 
 if __name__ == "__main__":
     # 创建标签集合
-    create_tag_database()
+    create_tag_database()[run.py](..%2F..%2F..%2FDownloads%2Frun.py)
     create_tag_collection()
 
 ```
