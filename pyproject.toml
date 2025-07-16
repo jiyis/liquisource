@@ -7,7 +7,7 @@ packages = ["liquiclient"]
 
 [project]
 name = "liquisource"
-version = "1.2.18"
+version = "1.2.19"
 authors = [
   { name="jiyis", email="425995717@qq.com" },
 ]
