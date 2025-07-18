@@ -5,7 +5,7 @@ import redis
 from liquiclient.config import get_property
 from redis.cluster import RedisCluster
 from redis.sentinel import Sentinel
-from urllib.parse import urlencode
+from urllib.parse import quote
 
 
 # 获取redis实例
@@ -58,9 +58,9 @@ def get_redis_client():
     elif mode == "cluster":
         # 集群模式处理 - 修正URL构建，包含端口号
         if username and password:
-            url = "redis://{}:{}@{}:{}".format(urlencode(username), urlencode(password), host, port)
+            url = "redis://{}:{}@{}:{}".format(quote(username), quote(password), host, port)
         elif password:
-            url = "redis://:{}@{}:{}".format(urlencode(password), host, port)
+            url = "redis://:{}@{}:{}".format(quote(password), host, port)
         else:
             url = "redis://{}:{}".format(host, port)
         client = RedisCluster.from_url(url)
@@ -134,9 +134,9 @@ def get_redis_cluster_client(key):
     elif mode == "cluster":
         # 集群模式处理 - 修正URL构建，包含端口号
         if username and password:
-            url = "redis://{}:{}@{}:{}".format(urlencode(username), urlencode(password), host, port)
+            url = "redis://{}:{}@{}:{}".format(quote(username), quote(password), host, port)
         elif password:
-            url = "redis://:{}@{}:{}".format(urlencode(password), host, port)
+            url = "redis://:{}@{}:{}".format(quote(password), host, port)
         else:
             url = "redis://{}:{}".format(host, port)
         client = RedisCluster.from_url(url)
