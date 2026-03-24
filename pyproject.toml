@@ -7,7 +7,7 @@ packages = ["liquiclient"]
 
 [project]
 name = "liquisource"
-version = "1.2.19"
+version = "1.3.0"
 authors = [
   { name="jiyis", email="425995717@qq.com" },
 ]
@@ -33,3 +33,9 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/jiyis/liquisource"
 "Bug Tracker" = "https://github.com/jiyis/liquisource/issues"
+
+[project.optional-dependencies]
+iceberg = [
+    "pyiceberg[s3fs,hive]==0.8.1",
+    "pyarrow==14.0.2",
+]

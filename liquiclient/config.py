@@ -35,6 +35,14 @@ def get_property(name):
     return config[name].data
 
 
+# 获取配置的某一个key，不存在时返回None
+def get_property_or_none(name):
+    try:
+        return config[name].data
+    except KeyError:
+        return None
+
+
 # 获取租户id
 def get_tenant():
     return get_property("parameter.tenant")
