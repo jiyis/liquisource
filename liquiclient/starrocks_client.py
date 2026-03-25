@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import mysql.connector
-from liquiclient.config import get_property
+from liquiclient.config import get_property, get_property_or_none
 
 
 # 获取starrocks实例
@@ -11,11 +11,11 @@ def get_starrocks_client():
     port     = int(get_property("starrocks.port"))
     username = get_property("starrocks.username")
     password = get_property("starrocks.password")
-    database = get_property("starrocks.database")
+
 
     conn_params = {
         "host": host, "port": port, "user": username,
-        "database": database, "charset": "utf8"
+        "charset": "utf8"
     }
     if password:
         conn_params["password"] = password
@@ -30,11 +30,11 @@ def get_starrocks_cluster_client(cluster):
     port     = int(get_property(prefix + ".port"))
     username = get_property(prefix + ".username")
     password = get_property(prefix + ".password")
-    database = get_property(prefix + ".database")
+
 
     conn_params = {
         "host": host, "port": port, "user": username,
-        "database": database, "charset": "utf8"
+        "charset": "utf8"
     }
     if password:
         conn_params["password"] = password
