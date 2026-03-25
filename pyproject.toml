@@ -36,6 +36,6 @@ dependencies = [
 
 [project.optional-dependencies]
 iceberg = [
-    "pyiceberg[s3fs,hive]==0.8.1",
+    "pyiceberg[s3fs,hive]==0.7.1",
     "pyarrow==14.0.2",
 ]
