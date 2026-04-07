@@ -7,7 +7,7 @@ redis~=4.5.5
 elasticsearch~=7.10.1
 confluent-kafka~=2.5.3
 
-# Iceberg (optional):
-# pip install liquisource[iceberg]
-# pyiceberg[s3fs,hive]==0.8.1
-# pyarrow==14.0.2
+# Iceberg
+pyiceberg~=0.10.0
+pyarrow>=14.0.2
+pyspark>=3.5.0,<4.0.0

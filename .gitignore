@@ -5,3 +5,6 @@
 build
 dist
 liquibase_datasource.egg-info
+liquisource.egg-info
+*.egg-info
+liquibase.properties
