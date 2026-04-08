@@ -8,6 +8,6 @@ elasticsearch~=7.10.1
 confluent-kafka~=2.5.3
 
 # Iceberg
-pyiceberg~=0.10.0
+pyiceberg~=0.7.1
 pyarrow>=14.0.2
 pyspark>=3.5.0,<4.0.0
