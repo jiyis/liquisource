@@ -14,8 +14,7 @@ def get_starrocks_client():
 
 
     conn_params = {
-        "host": host, "port": port, "user": username,
-        "charset": "utf8"
+        "host": host, "port": port, "user": username
     }
     if password:
         conn_params["password"] = password
