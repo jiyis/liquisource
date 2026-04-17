@@ -14,7 +14,8 @@ def get_starrocks_client():
 
 
     conn_params = {
-        "host": host, "port": port, "user": username
+        "host": host, "port": port, "user": username,
+        "charset": "utf8mb4", 
     }
     if password:
         conn_params["password"] = password
@@ -32,7 +33,8 @@ def get_starrocks_cluster_client(cluster):
 
 
     conn_params = {
-        "host": host, "port": port, "user": username
+        "host": host, "port": port, "user": username,
+        "charset": "utf8mb4", 
     }
     if password:
         conn_params["password"] = password
